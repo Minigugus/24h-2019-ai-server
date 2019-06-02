@@ -1,0 +1,21 @@
+{
+  "name": "24h_2019_ai_server",
+  "version": "0.1.0",
+  "description": "The AI server used at the « 24h des IUT Informatique » in 2019 (reverse engineered).",
+  "main": "dist/index.js",
+  "repository": "https://github.com/Minigugus/24h-2019-ai-server.git",
+  "author": "Minigugus <florentin2501@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "rollup": "^1.13.1",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.0.1",
+    "rollup-plugin-typescript2": "^0.21.1",
+    "typescript": "^3.5.1"
+  }
+}
