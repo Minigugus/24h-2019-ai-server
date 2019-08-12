@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es2018",
-    "module": "esnext"
+    "module": "esnext",
+    "sourceMap": true,
+    "strictNullChecks": true
   },
   "exclude": [
     "node_modules"
