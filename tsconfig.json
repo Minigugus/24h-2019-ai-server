@@ -4,8 +4,11 @@
     "target": "es2018",
     "module": "esnext",
     "sourceMap": true,
-    "strictNullChecks": true
+    "strict": true
   },
+  "include": [
+    "src/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

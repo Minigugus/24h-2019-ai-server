@@ -167,8 +167,8 @@ export default class CoffeeMap {
     return new CoffeeMap(cells, plotCount, width, height);
   }
 
-  private preparedData: string;
-  private preparedSimplifiedData: string;
+  private preparedData: string | null = null;
+  private preparedSimplifiedData: string | null = null;
 
   public readonly area: number;
 

@@ -22,7 +22,7 @@ export const MESSAGES = Object.freeze({
   OPPONENT_FAILED: () => '22:coup adversaire illegal',
 });
 
-export enum LobbyOpponentId {
+export const enum LobbyOpponentId {
   WHITE = 0,
   BLACK = 1
 }
@@ -44,7 +44,7 @@ export class LobbyOpponent {
       : never
     )
   ) {
-    const data = MESSAGES[message].apply(this, args);
+    const data = (MESSAGES[message] as (...args: any) => any).apply(this, args);
     return new Promise<number>((res, rej) =>
       this.serverSocket.send(
         data,
@@ -59,7 +59,7 @@ export class LobbyOpponent {
   }
 }
 
-export enum LobbyState {
+export const enum LobbyState {
   WAITING_WHITE_PLAYER,
   WAITING_BLACK_PLAYER,
 
@@ -125,8 +125,8 @@ export default class Lobby extends EventEmitter {
   private turnStartDate: number | null = null;
   private turnCount = 1;
 
-  private whitePlayer: LobbyOpponent;
-  private blackPlayer: LobbyOpponent;
+  private whitePlayer: LobbyOpponent = null!;
+  private blackPlayer: LobbyOpponent = null!;
 
   public map: CoffeeMapInstance;
 
@@ -208,7 +208,7 @@ export default class Lobby extends EventEmitter {
   ) {
     return Promise.all(
       [this.whitePlayer, this.blackPlayer]
-        .map(op => op.send.apply(op, arguments))
+        .map(op => (op.send as (...args: any) => any).apply(op, [...arguments]))
     );
   }
 
